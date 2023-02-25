@@ -27,4 +27,4 @@ alias: `pip-upgrade -o` or `pip-upgrade o` or `pip-upgrade outdated`
 
 To get outdated packages, it will parse `pip list --outdated --format=json`
 
-Then if upgrading, it will run `cargo install --locked <crate>`.
+Then if upgrading, it will run `pip install --upgrade <package>`.
