@@ -55,7 +55,6 @@ pub fn show_outdated() -> Result<()> {
     if packages.is_empty() {
         return Ok(());
     }
-    println!("\n");
     for package in packages {
         let formatted = package.to_formatted();
         println!(
@@ -90,7 +89,7 @@ pub fn update_all() -> Result<()> {
 
         // print last line of output
         let stdout = String::from_utf8(output.stdout).unwrap_or_default();
-        spinner.success(stdout.lines().last().unwrap_or_default());
+        spinner.success(stdout.lines().last().unwrap_or_default().trim());
     }
 
     Ok(())
