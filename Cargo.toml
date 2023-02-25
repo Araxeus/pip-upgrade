@@ -1,0 +1,22 @@
+[package]
+authors = ["Araxeus"]
+categories = ["command-line-utilities", "development-tools"]
+description = "Tiny cli utility to update all your installed Python packages"
+edition = "2021"
+homepage = "https://github.com/Araxeus/pip-upgrade"
+keywords = ["pip", "upgrade", "update", "command", "global"]
+license = "MIT"
+name = "pip-upgrade"
+readme = "README.md"
+repository = "https://github.com/Araxeus/pip-upgrade"
+version = "0.1.0"
+
+[[bin]]
+name = "pip-upgrade"
+path = "src/main.rs"
+
+[dependencies]
+colored = "2.0.0"
+serde = {version = "1.0.152", features = ["derive"]}
+serde_json = "1.0.93"
+spinoff = "0.7.0"
