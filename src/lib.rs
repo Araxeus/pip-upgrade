@@ -87,9 +87,14 @@ pub fn update_all() -> Result<()> {
             .args(["install", "--upgrade", &formatted.name])
             .output()?;
 
-        // print last line of output
         let stdout = String::from_utf8(output.stdout).unwrap_or_default();
-        spinner.success(stdout.lines().last().unwrap_or_default().trim());
+        let stdout_output = stdout.lines().last().unwrap_or_default().trim();
+
+        match output.status.code().unwrap_or(1) {
+            0 => spinner.success(stdout_output),
+            1 => spinner.fail(stdout_output),
+            _ => spinner.warn(stdout_output),
+        }
     }
 
     Ok(())
