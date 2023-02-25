@@ -8,20 +8,21 @@ fn main() -> Result<()> {
         let arg = args[1].trim_start_matches('-');
         // remove trailing - or --
         match arg {
-            "update" | "upgrade" | "u" => update_all(),
             "outdated" | "list" | "show" | "o" | "l" => show_outdated(),
             "version" | "v" => {
                 print_version();
                 Ok(())
             }
-            _ => {
+            "help" | "h" => {
                 print_help();
                 Ok(())
             }
+            _ => {
+                update_all()
+            }
         }
     } else {
-        print_help();
-        Ok(())
+        update_all()
     }
 }
 
@@ -34,7 +35,6 @@ fn print_help() {
     println!("Usage: pip-upgrade [Command]");
     println!("Commands:");
     println!("  -h, --help\t\t\tPrint this help message");
-    println!("  -u, --update, --upgrade\tUpdate all outdated packages");
     println!("  -o, --outdated, --list\tShow all outdated packages");
     println!("  -v, --version\t\t\tPrint the version");
 }
