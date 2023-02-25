@@ -11,17 +11,19 @@ cargo install pip-upgrade
 
 ## Available Commands
 
-### `pip-upgrade --upgrade`
+### `pip-upgrade`
 
 This command will upgrade all of your installed Python packages to the latest version.
 
-alias: `pip-upgrade -u` or `pip-upgrade u` or `pip-upgrade update`
+![upgrade.gif](https://github.com/Araxeus/pip-upgrade/raw/master/assets/upgrade.gif "Upgrade command")
 
 ### `pip-upgrade --outdated`
 
 This command will show you if any of your installed Python packages are out of date.
 
 alias: `pip-upgrade -o` or `pip-upgrade o` or `pip-upgrade outdated`
+
+![outdated.gif](https://github.com/Araxeus/pip-upgrade/raw/master/assets/outdated.gif "--outdated command")
 
 ### How it works
 

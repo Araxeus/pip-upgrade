@@ -17,9 +17,7 @@ fn main() -> Result<()> {
                 print_help();
                 Ok(())
             }
-            _ => {
-                update_all()
-            }
+            _ => update_all(),
         }
     } else {
         update_all()
