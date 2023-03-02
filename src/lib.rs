@@ -38,7 +38,13 @@ fn get_outdated() -> Result<Vec<Package>> {
         .output()?;
 
     // parse the json output
-    let packages: Vec<Package> = serde_json::from_slice(&output.stdout)?;
+    let packages: Vec<Package> = match serde_json::from_slice(&output.stdout) {
+        Ok(packages) => packages,
+        Err(error) => {
+            spinner.fail(&format!("Failed to parse json:\n  {error}"));
+            return Ok(vec![]);
+        }
+    };
 
     spinner.clear();
 
