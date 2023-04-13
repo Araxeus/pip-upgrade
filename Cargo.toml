@@ -18,5 +18,5 @@ path = "src/main.rs"
 [dependencies]
 colored = "2.0.0"
 serde = {version = "1.0.152", features = ["derive"]}
-serde_json = "1.0.93"
+serde_json = "1.0.96"
 spinoff = "0.7.0"
