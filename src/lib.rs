@@ -27,7 +27,7 @@ impl Package {
 
 // run in shell `pip list --outdated --format=json` and parse the json output
 fn get_outdated() -> Result<Vec<Package>> {
-    let spinner = Spinner::new(
+    let mut spinner = Spinner::new(
         spinners::Dots,
         "Scanning for outdated packages...",
         Color::Cyan,
@@ -87,7 +87,7 @@ pub fn update_all() -> Result<()> {
             formatted.name, formatted.version, formatted.latest_version
         );
 
-        let spinner = Spinner::new(spinners::Dots, message, Color::Cyan);
+        let mut spinner = Spinner::new(spinners::Dots, message, Color::Cyan);
 
         let output = std::process::Command::new("pip")
             .args(["install", "--upgrade", &formatted.name])
