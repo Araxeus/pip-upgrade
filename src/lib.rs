@@ -34,7 +34,7 @@ fn get_outdated() -> Result<Vec<Package>> {
     );
     // get the json output
     let output = Command::new("pip")
-        .args(["list", "--outdated", "--format=json"])
+        .args(["list", "--outdated", "--not-required", "--format=json"])
         .output()?;
 
     // parse the json output
